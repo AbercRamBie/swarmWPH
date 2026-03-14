@@ -1,0 +1,25 @@
+# Override for TurtleBot3 Empirical benchmarks (M2)
+energy_model:
+  name: turtlebot3_empirical
+  parameters:
+    p_static_w: 6.35
+    p_motor_standby_w: 0.5
+    sigma_0: 0.25
+    sigma_1: 0.008
+    sigma_2: 0.015
+    sigma_3: 0.05
+    wheel_radius_m: 0.033
+    wheel_base_m: 0.16
+    robot_mass_kg: 1.0
+    solar_harvest_rate_w: 0.0  # Can be set > 0 for solar variant
+    energy_capacity_sim: 100.0
+    battery_capacity_j: 180000
+
+charging:
+  enabled: false  # Disable for no-charging variant
+
+predators:
+  energy_regen_rate: 0.0
+
+simulation:
+  headless: true

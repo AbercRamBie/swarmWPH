@@ -1,0 +1,24 @@
+# Override for Stolaroff Drone benchmarks (M1)
+energy_model:
+  name: stolaroff_drone
+  parameters:
+    body_mass_kg: 1.07
+    battery_mass_kg: 0.31
+    propeller_diameter_m: 0.35
+    propeller_count: 4
+    ground_speed_m_s: 6.94
+    drag_force_n: 4.1134
+    power_efficiency: 0.8
+    battery_capacity_j: 275000
+    energy_capacity_sim: 100.0
+    pixels_per_metre: 100.0
+    turn_cost_overhead_fraction: 0.15
+
+charging:
+  enabled: false  # Drones don't recharge mid-mission
+
+predators:
+  energy_regen_rate: 0.0  # No passive regen for physics-based model
+
+simulation:
+  headless: true

@@ -1,0 +1,78 @@
+# ============================================================
+# default_config.yaml — Full configuration with all options
+# ============================================================
+# This file documents every configurable parameter.
+# Benchmark override files only need to specify values that
+# differ from these defaults.
+# ============================================================
+
+simulation:
+  fps: 60                          # Frames per second (also determines delta_time)
+  max_frames: 20000                # Timeout: stop if not all prey delivered by this frame
+  arena_width: 1400                # Arena width in pixels
+  arena_height: 900                # Arena height in pixels
+  random_seed: null                # null = random, or integer for reproducibility
+  headless: false                  # true = no pygame window (for benchmarking)
+  goal_zone_size: 180              # Side length of the square goal zone (pixels)
+  goal_zone_margin: 20             # Distance from arena edge to goal zone
+
+# ---- Herding Algorithm Selection ----
+algorithm:
+  name: wolf_pack_formation        # Options: wolf_pack_formation, strombom, simple_apf, wolf_apf
+  parameters: {}                   # Algorithm-specific overrides
+
+# ---- Energy Model Selection ----
+energy_model:
+  name: stolaroff_drone            # Options: stolaroff_drone, turtlebot3_empirical
+  parameters: {}                   # Model-specific overrides (see model files for keys)
+
+# ---- Charging Stations ----
+charging:
+  enabled: false                   # Set true for M2 charging variant
+  station_count: 2                 # Number of fixed charging stations
+  station_positions: auto          # "auto" or list of [x,y] coordinates
+  charge_rate: 0.5                 # Energy units per frame while at station
+  station_radius: 40               # Distance to station to start charging
+
+# ---- Predator Agents ----
+predators:
+  count: 10
+  radius: 11                       # Visual radius (pixels)
+  color: [220, 80, 80]
+  speed_max: 3.2                   # Maximum speed (pixels/frame)
+  friction: 0.995
+  turn_rate_max: 0.10              # Maximum turn rate (radians/frame)
+  turn_rate_min: 0.05
+  reorient_probability: 0.01       # Chance per frame of random heading change in search
+  herd_distance: 120               # How far behind prey the formation sits
+  arrive_radius: 90                # Distance at which speed starts reducing
+  separation_radius: 34            # Distance for predator-predator soft repulsion
+  lane_offset: 55                  # Lateral spread in formation
+  spawn_anchor: [60, -60]          # [x, y] spawn centre (y=-60 means 60 from bottom)
+  spawn_spread: 40                 # Radius of spawn distribution
+  energy_capacity: 200.0           # Maximum energy storage (increased for longer missions)
+  energy_initial: 200.0            # Starting energy
+  energy_regen_rate: 0.05          # Per-frame passive regen (slow recovery)
+  engage_minimum_energy: 20.0      # Below this, predator switches to search mode
+
+# ---- Prey Agents ----
+prey:
+  count: 20
+  radius: 8
+  color: [100, 150, 255]
+  speed_max: 2.0
+  avoid_predator_radius: 120
+  avoid_predator_strength: 2.0
+  separation_radius: 25
+  separation_strength: 1.5
+  boundary_margin: 40
+  boundary_push_strength: 1.25
+  predator_collision_buffer: 1.0
+  wander_jitter: 0.5
+
+# ---- Communication ----
+communication:
+  comm_radius: 250                 # Distance for neighbour-to-neighbour communication
+  conflict_rounds: 3               # Rounds of conflict resolution per frame
+  cost_per_message: 0.005          # Energy cost per message
+  cost_idle_per_frame: 0.0         # Passive communication cost (radio standby)

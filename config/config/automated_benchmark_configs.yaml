@@ -1,0 +1,172 @@
+# Automated Benchmark Configurations
+# Tests M1 and M2 (viable models) with varied configurations
+
+benchmark_runs:
+  # ===== BASELINE: Standard Configurations =====
+  - name: "M1_Small_Baseline"
+    config_file: "config/benchmark_stolaroff.yaml"
+    predator_count: 5
+    prey_count: 10
+    seed: 42
+
+  - name: "M1_Medium_Baseline"
+    config_file: "config/benchmark_stolaroff.yaml"
+    predator_count: 10
+    prey_count: 20
+    seed: 42
+
+  - name: "M1_Large_Baseline"
+    config_file: "config/benchmark_stolaroff.yaml"
+    predator_count: 15
+    prey_count: 30
+    seed: 42
+
+  - name: "M2_Small_Baseline"
+    config_file: "config/benchmark_turtlebot3.yaml"
+    predator_count: 5
+    prey_count: 10
+    seed: 42
+
+  - name: "M2_Medium_Baseline"
+    config_file: "config/benchmark_turtlebot3.yaml"
+    predator_count: 10
+    prey_count: 20
+    seed: 42
+
+  - name: "M2_Large_Baseline"
+    config_file: "config/benchmark_turtlebot3.yaml"
+    predator_count: 15
+    prey_count: 30
+    seed: 42
+
+  # ===== PREDATOR-TO-PREY RATIOS =====
+  # Testing different hunting ratios
+
+  - name: "M1_Ratio_1to1"
+    config_file: "config/benchmark_stolaroff.yaml"
+    predator_count: 15
+    prey_count: 15
+    seed: 42
+
+  - name: "M1_Ratio_1to2"
+    config_file: "config/benchmark_stolaroff.yaml"
+    predator_count: 10
+    prey_count: 20
+    seed: 42
+
+  - name: "M1_Ratio_1to3"
+    config_file: "config/benchmark_stolaroff.yaml"
+    predator_count: 7
+    prey_count: 21
+    seed: 42
+
+  - name: "M1_Ratio_2to1"
+    config_file: "config/benchmark_stolaroff.yaml"
+    predator_count: 20
+    prey_count: 10
+    seed: 42
+
+  - name: "M2_Ratio_1to1"
+    config_file: "config/benchmark_turtlebot3.yaml"
+    predator_count: 15
+    prey_count: 15
+    seed: 42
+
+  - name: "M2_Ratio_1to2"
+    config_file: "config/benchmark_turtlebot3.yaml"
+    predator_count: 10
+    prey_count: 20
+    seed: 42
+
+  - name: "M2_Ratio_1to3"
+    config_file: "config/benchmark_turtlebot3.yaml"
+    predator_count: 7
+    prey_count: 21
+    seed: 42
+
+  - name: "M2_Ratio_2to1"
+    config_file: "config/benchmark_turtlebot3.yaml"
+    predator_count: 20
+    prey_count: 10
+    seed: 42
+
+  # ===== SCALABILITY TEST =====
+  # Testing performance at different scales
+
+  - name: "M1_Scale_ExtraSmall"
+    config_file: "config/benchmark_stolaroff.yaml"
+    predator_count: 3
+    prey_count: 6
+    seed: 42
+
+  - name: "M1_Scale_ExtraLarge"
+    config_file: "config/benchmark_stolaroff.yaml"
+    predator_count: 20
+    prey_count: 40
+    seed: 42
+
+  - name: "M2_Scale_ExtraSmall"
+    config_file: "config/benchmark_turtlebot3.yaml"
+    predator_count: 3
+    prey_count: 6
+    seed: 42
+
+  - name: "M2_Scale_ExtraLarge"
+    config_file: "config/benchmark_turtlebot3.yaml"
+    predator_count: 20
+    prey_count: 40
+    seed: 42
+
+  # ===== STRESS TESTS =====
+  # Extreme scenarios
+
+  - name: "M1_Stress_VeryOutnumbered"
+    config_file: "config/benchmark_stolaroff.yaml"
+    predator_count: 5
+    prey_count: 30
+    seed: 42
+
+  - name: "M1_Stress_ManyPredators"
+    config_file: "config/benchmark_stolaroff.yaml"
+    predator_count: 25
+    prey_count: 15
+    seed: 42
+
+  - name: "M2_Stress_VeryOutnumbered"
+    config_file: "config/benchmark_turtlebot3.yaml"
+    predator_count: 5
+    prey_count: 30
+    seed: 42
+
+  - name: "M2_Stress_ManyPredators"
+    config_file: "config/benchmark_turtlebot3.yaml"
+    predator_count: 25
+    prey_count: 15
+    seed: 42
+
+  # ===== RANDOM SEED VARIATION =====
+  # Testing consistency across different seeds
+
+  - name: "M1_Medium_Seed100"
+    config_file: "config/benchmark_stolaroff.yaml"
+    predator_count: 10
+    prey_count: 20
+    seed: 100
+
+  - name: "M1_Medium_Seed200"
+    config_file: "config/benchmark_stolaroff.yaml"
+    predator_count: 10
+    prey_count: 20
+    seed: 200
+
+  - name: "M2_Medium_Seed100"
+    config_file: "config/benchmark_turtlebot3.yaml"
+    predator_count: 10
+    prey_count: 20
+    seed: 100
+
+  - name: "M2_Medium_Seed200"
+    config_file: "config/benchmark_turtlebot3.yaml"
+    predator_count: 10
+    prey_count: 20
+    seed: 200
